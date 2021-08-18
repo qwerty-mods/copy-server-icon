@@ -14,7 +14,7 @@ module.exports = class CopyServerIcon extends Plugin {
             ([{ guild }], res) => {
                 const copyIconUrl = React.createElement(Menu.MenuItem, {
                     id: "icon-url-button",
-                    label: "Copy Icon Url",
+                    label: "Copy Icon URL",
                     action: () => guild.icon ? clipboard.writeText(guild.getIconURL()) : powercord.api.notices.sendToast('no-icon-url', {
                                         header: `Server '${guild.name}' has no valid Icon.`,
                                         timeout: 5000
