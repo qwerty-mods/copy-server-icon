@@ -1,6 +1,6 @@
 {
     "name": "Copy Server Icon Url",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Adds a button to server's context menu that allows you to copy the url.",
     "author": "12944qwerty",
     "license": "MIT"
