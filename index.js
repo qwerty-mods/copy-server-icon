@@ -45,7 +45,7 @@ module.exports = class CopyServerIcon extends Plugin {
         if (m) patch(m)
         else {
             const module = getModule([ 'openContextMenuLazy' ], false)
-            inject('rm-lazy-contextmenu', module, 'openContextMenuLazy', args => {
+            inject('copy-server-icon-lazy-contextmenu', module, 'openContextMenuLazy', args => {
                 const lazyRender = args[1]
                 args[1] = async () => {
                     const render = await lazyRender(args[0])
@@ -53,7 +53,7 @@ module.exports = class CopyServerIcon extends Plugin {
                     return (config) => {
                     const menu = render(config)
                     if (menu?.type?.displayName === displayName && patch) {
-                        uninject('rm-lazy-contextmenu')
+                        uninject('copy-server-icon-lazy-contextmenu')
                         patch(getModule(filter, false))
                         patch = false
                     }
@@ -67,5 +67,6 @@ module.exports = class CopyServerIcon extends Plugin {
 
     pluginWillUnload() {
         uninject('server-icon-url-button');
+        uninject('copy-server-icon-lazy-contextmenu');
     }
 }
